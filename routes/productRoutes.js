@@ -9,6 +9,10 @@ const {
     deleteProduct,
 } = require('../controllers/productController');
 
+router.get('/hello', (req, res) => {
+    res.json("hello world product");
+})
+
 // Route for creating a product
 router.post('/', createProduct);
 
