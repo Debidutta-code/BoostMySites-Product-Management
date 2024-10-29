@@ -7,6 +7,10 @@ const validateProduct = require('../middlewares/validateProduct');
 // Create a new product
 router.post('/', validateProduct, productController.createProduct);
 
+router.get('/hello', (req, res) => {
+    res.json("hello world");
+})
+
 // Get all products
 router.get('/', productController.getAllProducts);
 
