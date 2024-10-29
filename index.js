@@ -15,6 +15,9 @@ const app = express();
 connectDB();
 
 // Middleware
+app.get("/", (req, res) => {
+  res.json("hello world dev");
+})
 app.use(express.json()); // Parse JSON request bodies
 
 // Routes
