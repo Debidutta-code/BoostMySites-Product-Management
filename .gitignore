@@ -2,5 +2,4 @@
 node_modules/
 
 # Other files to ignore
-.env
 .DS_Store
