@@ -1,26 +1,27 @@
 // routes/productRoutes.js
 const express = require('express');
 const router = express.Router();
-const productController = require('../controllers/productController');
-const validateProduct = require('../middlewares/validateProduct');
+const {
+    createProduct,
+    getAllProducts,
+    getProductById,
+    updateProduct,
+    deleteProduct,
+} = require('../controllers/productController');
 
-// Create a new product
-router.post('/', validateProduct, productController.createProduct);
+// Route for creating a product
+router.post('/', createProduct);
 
-router.get('/hello', (req, res) => {
-    res.json("hello world");
-})
+// Route for getting all products
+router.get('/', getAllProducts);
 
-// Get all products
-router.get('/', productController.getAllProducts);
+// Route for getting a single product by ID
+router.get('/:id', getProductById);
 
-// Get a single product by ID
-router.get('/:id', productController.getProductById);
+// Route for updating a product by ID
+router.put('/:id', updateProduct);
 
-// Update a product by ID
-router.put('/:id', validateProduct, productController.updateProduct);
-
-// Delete a product by ID
-router.delete('/:id', productController.deleteProduct);
+// Route for deleting a product by ID
+router.delete('/:id', deleteProduct);
 
 module.exports = router;
